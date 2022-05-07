@@ -1,0 +1,45 @@
+
+<form action="" [formGroup]="formdata">
+    <h1>Fill Your Information Here</h1><br>
+
+    <div>
+        <label>Name : </label>
+        <input  id="input"  class="form-control" [ngClass]="{'red':formdata.controls.name.invalid && formdata.controls.name.touched}" name="name" formControlName="name"  [(ngModel)]="name">
+        <span *ngIf="formdata.controls.name.invalid && formdata.controls.name.touched">Please Enter Valid Name.</span>
+
+      </div><br>
+      <div>
+        <label>Email : </label>
+        <input  id="input"  class="form-control" [ngClass]="{'red':formdata.controls.email.invalid && formdata.controls.email.touched}" email="email" formControlName="email"  [(ngModel)]="email">
+        <span *ngIf="formdata.controls.email.invalid && formdata.controls.email.touched">Please Enter Valid Email.</span>
+
+      </div><br>
+      <div>
+        <label>Mobileno : </label>
+        <input  id="input" type="number"  class="form-control" [ngClass]="{'red':formdata.controls.mobileno.invalid && formdata.controls.mobileno.touched}" mobileno="mobileno" formControlName="mobileno"  [(ngModel)]="mobileno">
+        <span *ngIf="formdata.controls.mobileno.invalid && formdata.controls.mobileno.touched">Please Enter Valid Mobileno.</span>
+
+      </div><br>
+      <div>
+        <label>Gender : </label>
+        <label><input class="radio" type="radio" name="gender" formControlName="gender" value="Male" [(ngModel)]="gender">Male</label>
+
+        <label><input class="radio" type="radio" name="gender" formControlName="gender" value="Female" [(ngModel)]="gender">Female</label>
+      </div><br>
+      <div>
+        <label>Favorite Topic: </label>
+        <select  name="topic" id=""  formControlName="topic" [(ngModel)]="topic">
+          <option value="">Select topic</option>
+          <option>Physics</option>
+          <option >Chemistry</option>
+          <option >Biology</option>
+          <option >Mathematics</option>
+        </select>
+      </div><br>
+      <div>
+          <button (click)="clickme()" type="submit">Show</button>
+      </div>
+      <div>
+          <app-component2 [parentdata]="data"></app-component2>
+      </div>
+</form>
